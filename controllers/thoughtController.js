@@ -72,6 +72,19 @@ module.exports = {
             if (!thought) {
                 return res.status(404).json({ message: 'No thought with that ID' });
             }
+
+            const updateUser = await User.findOneAndUpdate(
+                { username: thought.username },
+                { $pull: { thoughts: thought._id } },
+                { new: true }
+            );
+
+            if (!updateUser) {
+                return res.status(404).json({
+                    message: 'Thought deleted, but found no cooresponding user found.',
+                })
+            }
+
             res.json({ message: 'Thought deleted!' });
         } catch (err) {
             console.error(err);

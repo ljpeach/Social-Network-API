@@ -48,4 +48,4 @@ An API for a social network application. Uses MongoDB and express.js to manage a
 
 ## Tutorial Video
 
-[Click here for tutorial video]()
+[Click here for tutorial video](https://youtu.be/rQTliNys_20)
